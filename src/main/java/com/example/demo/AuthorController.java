@@ -7,17 +7,16 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class AuthorController {
-    
+
     private final AuthorRepository authorRepository;
 
-    public AuthorController(AuthorRepository authorRepository){
+    public AuthorController(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @MutationMapping
-    public Author createAuthor(@Argument("author") Author author){
+    public Author createAuthor(@Argument("author") Author author) {
         return authorRepository.add(author);
     }
-
 }

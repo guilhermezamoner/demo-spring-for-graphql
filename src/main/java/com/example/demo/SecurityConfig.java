@@ -18,7 +18,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public InMemoryUserDetailsManager users(){
+    public InMemoryUserDetailsManager users() {
         UserDetails user = User.withDefaultPasswordEncoder()
                 .username("user")
                 .password("password")
@@ -43,5 +43,4 @@ public class SecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .build();
     }
-
 }

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+printf "\033[0;34mVerificando commit:\n"
+
+
+if ! mvn spotless:check; then
+  printf '\033[0;31mVerificações de Qualidade e Testes falharam. Favor ler os logs acima para resolver as pendências:\n'
+  exit 1
+fi
+
+printf "\033[0;32mCommit verificado com sucesso!\n"
+
+
+
+
+

@@ -14,11 +14,12 @@ public class BookGraphQlTest {
     private GraphQlTester graphQlTester;
 
     @Test
-    public void shouldFindAllBooks(){
-        this.graphQlTester.documentName("allBooks-query")
+    public void shouldFindAllBooks() {
+        this.graphQlTester
+                .documentName("allBooks-query")
                 .execute()
                 .path("allBooks[0].title")
-                .entity(String.class).isEqualTo("Reactive Spring");
+                .entity(String.class)
+                .isEqualTo("Reactive Spring");
     }
-
 }

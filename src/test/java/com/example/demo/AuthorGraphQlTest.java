@@ -16,12 +16,12 @@ public class AuthorGraphQlTest {
 
     @Test
     @Disabled
-    public void shouldCreateAuthor(){
-        this.graphQlTester.documentName("createAuthor-mutation")
+    public void shouldCreateAuthor() {
+        this.graphQlTester
+                .documentName("createAuthor-mutation")
                 .execute()
                 .path("createAuthor.firstName")
-                .entity(String.class).isEqualTo("John");
-
+                .entity(String.class)
+                .isEqualTo("John");
     }
-
 }

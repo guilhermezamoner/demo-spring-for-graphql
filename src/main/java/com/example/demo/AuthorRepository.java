@@ -1,11 +1,9 @@
 package com.example.demo;
 
+import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
-
-import jakarta.annotation.PostConstruct;
 
 @Repository
 public class AuthorRepository {
@@ -15,7 +13,7 @@ public class AuthorRepository {
         return authors;
     }
 
-    public Author add(Author author){
+    public Author add(Author author) {
         authors.add(author);
         return author;
     }
@@ -36,9 +34,8 @@ public class AuthorRepository {
 
     @PostConstruct
     private void init() {
-        authors.add(new Author(1,"Josh","Long"));
-        authors.add(new Author(2,"Mark","Heckler"));
-        authors.add(new Author(3,"Greg","Turnquist"));
+        authors.add(new Author(1, "Josh", "Long"));
+        authors.add(new Author(2, "Mark", "Heckler"));
+        authors.add(new Author(3, "Greg", "Turnquist"));
     }
-
 }
