@@ -1,0 +1,14 @@
+query {
+  allBooks {
+    id
+    title
+    pages
+    rating {
+      star
+    }
+    author {
+      firstName
+      lastName
+    }
+  }
+}

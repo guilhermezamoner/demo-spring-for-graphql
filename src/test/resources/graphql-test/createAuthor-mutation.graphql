@@ -1,0 +1,11 @@
+mutation createAuthor  {
+  createAuthor(author:
+  {   id: 4,
+      firstName: "John",
+      lastName: "B Good"
+  }) {
+    id
+    firstName
+    lastName
+  }
+}
