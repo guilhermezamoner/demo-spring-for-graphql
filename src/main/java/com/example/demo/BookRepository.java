@@ -3,6 +3,7 @@ package com.example.demo;
 import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,7 @@ public class BookRepository {
 
     private final AuthorRepository authorRepository;
 
-    private List<Book> books = new ArrayList<>();
+    private final List<Book> books = new ArrayList<>();
 
     public BookRepository(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
@@ -21,15 +22,14 @@ public class BookRepository {
 
     public List<Book> findAll() {
         logger.info("findAll - start ");
-        Long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         logger.info("findAll - end - took [{}] ms", System.currentTimeMillis() - start);
-        throw new RuntimeException("null");
-        // return books;
+        return books;
     }
 
     public Book findOne(Integer id) {
         return books.stream()
-                .filter(book -> book.id() == id)
+                .filter(book -> Objects.equals(book.id(), id))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Book not found"));
     }

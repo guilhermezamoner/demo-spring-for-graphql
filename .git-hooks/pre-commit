@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-printf "\033[0;34mVerificando commit:\n"
+printf "\033[0;34mRunning linters:\n"
 
 
 if ! mvn spotless:check; then
-  printf '\033[0;31mVerificações de Qualidade e Testes falharam. Favor ler os logs acima para resolver as pendências:\n'
+  printf '\033[0;31mVerificações de Qualidade e Testes falharam. Checar os logs acima para resolver as falhas\n'
   exit 1
 fi
 
